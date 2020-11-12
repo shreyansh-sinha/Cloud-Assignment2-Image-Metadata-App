@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<h3>Image Search Page</h3>
+{% if empty %}
+   <h4> Match not found </h4>
+{% else %}
+  {% if invalid %}
+  <h4> Check the query </h4>
+  {% else %}
+    <table>
+      <tr>
+        <th>Search Results</th>
+      </tr>
+      {% for img in images %}
+        <tr>
+         <td><img src="{{img.image.url}}" alt="{{img.image.path}}" width="300" height="300"></td>
+        </tr>
+        <br><br><br><br>
+      {% endfor %}
+    </table>
+  {% endif %}
+{% endif %}
+<br>
+<a href="{% url 'imgsearch' %}">Back</a>
+{% endblock %}
+

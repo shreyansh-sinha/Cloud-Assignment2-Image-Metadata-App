@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<h3>Image Search Page</h3>
+        <form method="POST" enctype="multipart/form-data" autocomplete="off">
+            {% csrf_token %}
+              {{form}}
+              <br><br>
+
+            	<button type="submit" class="btn btn-outline-primary my-2 my-sm-0 ">Submit</button>
+        </form>
+        <br><br>
+        <a href="{% url 'index' %}">Back</a>
+{% endblock %}
